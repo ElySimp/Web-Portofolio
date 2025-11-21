@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="../assets/css/Home.css" rel="stylesheet">
+    <title>四季中国 - Discover China Through Four Seasons</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-yin-yang"></i>
+                <span class="logo-text">四季中国</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link active">首页 Home</a></li>
+                <li><a href="#spring" class="nav-link spring-link">春 Spring</a></li>
+                <li><a href="#summer" class="nav-link summer-link">夏 Summer</a></li>
+                <li><a href="#autumn" class="nav-link autumn-link">秋 Autumn</a></li>
+                <li><a href="#winter" class="nav-link winter-link">冬 Winter</a></li>
+                <li><a href="About.html" class="nav-link about-link">关于 About</a></li>
+                
+                <!-- Creator Dropdown -->
+                <li class="nav-item-dropdown">
+                    <a href="#" class="nav-link creator-link" id="creatorDropdown">
+                        <i class="fas fa-users"></i> Creator <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-content" id="dropdownMenu">
+                        <li><a href="Adrian_周立文.html"><i class="fas fa-user"></i> Creator 1 - Adrian</a></li>
+                        <li><a href="Creator2.html"><i class="fas fa-user"></i> Creator 2</a></li>
+                        <li><a href="Creator3.html"><i class="fas fa-user"></i> Creator 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <!-- Dark Mode Toggle -->
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg"></div>
+        <div class="lanterns">
+            <div class="lantern lantern-1"></div>
+            <div class="lantern lantern-2"></div>
+            <div class="lantern lantern-3"></div>
+            <div class="lantern lantern-4"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="chinese">探索中国</span>
+                    <span class="english">Discover China</span>
+                </h1>
+                <p class="hero-subtitle">Experience the Magic of Four Seasons</p>
+                <p class="hero-desc">从春暖花开到冬雪皑皑，感受中国四季之美</p>
+                
+                <div class="season-cards">
+                    <a href="#spring" class="season-card spring-card" data-season="spring">
+                        <div class="card-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>春天</h3>
+                        <p>Spring</p>
+                    </a>
+                    <a href="#summer" class="season-card summer-card" data-season="summer">
+                        <div class="card-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <h3>夏天</h3>
+                        <p>Summer</p>
+                    </a>
+                    <a href="#autumn" class="season-card autumn-card" data-season="autumn">
+                        <div class="card-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>秋天</h3>
+                        <p>Autumn</p>
+                    </a>
+                    <a href="#winter" class="season-card winter-card" data-season="winter">
+                        <div class="card-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h3>冬天</h3>
+                        <p>Winter</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Spring Section -->
+    <section id="spring" class="season-section spring-section">
+        <div class="season-bg spring-bg"></div>
+        <div class="decorative-elements spring-elements">
+            <div class="cherry-blossom"></div>
+            <div class="cherry-blossom"></div>
+            <div class="cherry-blossom"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header">
+                <span class="season-badge spring-badge">
+                    <i class="fas fa-seedling"></i> 春季 Spring
+                </span>
+                <h2 class="section-title">春暖花开 · Blooming Spring</h2>
+                <p class="season-period">March - May | 万物复苏，生机盎然</p>
+            </div>
+
+            <!-- Culture -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-pagoda"></i>
+                    <h3>春季文化 Spring Culture</h3>
+                </div>
+                <div class="culture-grid">
+                    <div class="culture-card">
+                        <div class="culture-icon spring-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4>清明节</h4>
+                        <p class="chinese-name">Qingming Festival</p>
+                        <p class="description">Tomb Sweeping Day - honoring ancestors and welcoming spring with outdoor activities</p>
+                    </div>
+                    <div class="culture-card">
+                        <div class="culture-icon spring-icon">
+                            <i class="fas fa-kite"></i>
+                        </div>
+                        <h4>放风筝</h4>
+                        <p class="chinese-name">Kite Flying</p>
+                        <p class="description">Traditional spring activity filling skies with colorful kites</p>
+                    </div>
+                    <div class="culture-card">
+                        <div class="culture-icon spring-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h4>踏青</h4>
+                        <p class="chinese-name">Spring Outing</p>
+                        <p class="description">Families enjoy picnics among blooming flowers</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-bowl-rice"></i>
+                    <h3>春季美食 Spring Food</h3>
+                </div>
+                <!-- SPRING SECTION - Food Cards dengan Gambar -->
+                <div class="food-grid">
+                    <div class="food-card">
+                        <div class="food-image spring-food" style="background-image: url('../assets/img/Spring/Food/Qingtuan.png');"></div>
+                        <div class="food-content">
+                            <h4>青团 Qingtuan</h4>
+                            <p>Sweet green rice balls made with mugwort, a Qingming tradition</p>
+                            <span class="food-tag spring-tag">Sweet</span>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-image spring-food" style="background-image: url('../assets/img/Spring/Food/SpringRolls.png');"></div>
+                        <div class="food-content">
+                            <h4>春卷 Spring Rolls</h4>
+                            <p>Crispy rolls filled with fresh spring vegetables</p>
+                            <span class="food-tag spring-tag">Savory</span>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-image spring-food" style="background-image: url('../assets/img/Spring/Food/BambooShoots.png');"></div>
+                        <div class="food-content">
+                            <h4>竹笋 Bamboo Shoots</h4>
+                            <p>Fresh, tender spring bamboo shoots</p>
+                            <span class="food-tag spring-tag">Fresh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destinations -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-mountain"></i>
+                    <h3>春季景点 Spring Destinations</h3>
+                </div>
+                <!-- SPRING SECTION - Destination Cards dengan Gambar -->
+                <div class="destination-grid">
+                    <div class="destination-card">
+                        <div class="destination-image spring-dest" style="background-image: url('../assets/img/Spring/Destination/Wuyuan.png');"></div>
+                        <div class="destination-content">
+                            <h4>婺源 Wuyuan</h4>
+                            <p>Golden rapeseed flowers with ancient villages</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Jiangxi</span>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-image spring-dest" style="background-image: url('../assets/img/Spring/Destination/WestLake.png');"></div>
+                        <div class="destination-content">
+                            <h4>西湖 West Lake</h4>
+                            <p>Hangzhou's lake surrounded by cherry blossoms</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Zhejiang</span>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-image spring-dest" style="background-image: url('../assets/img/Spring/Destination/Nyingchi.png');"></div>
+                        <div class="destination-content">
+                            <h4>林芝 Nyingchi</h4>
+                            <p>Tibet's peach blossom paradise</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Tibet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summer Section -->
+    <section id="summer" class="season-section summer-section">
+        <div class="season-bg summer-bg"></div>
+        <div class="decorative-elements summer-elements">
+            <div class="sun-ray"></div>
+            <div class="sun-ray"></div>
+            <div class="sun-ray"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header">
+                <span class="season-badge summer-badge">
+                    <i class="fas fa-sun"></i> 夏季 Summer
+                </span>
+                <h2 class="section-title">夏日炎炎 · Vibrant Summer</h2>
+                <p class="season-period">June - August | 热情似火，活力四射</p>
+            </div>
+
+            <!-- Culture -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-pagoda"></i>
+                    <h3>夏季文化 Summer Culture</h3>
+                </div>
+                <div class="culture-grid">
+                    <div class="culture-card">
+                        <div class="culture-icon summer-icon">
+                            <i class="fas fa-dragon"></i>
+                        </div>
+                        <h4>端午节</h4>
+                        <p class="chinese-name">Dragon Boat Festival</p>
+                        <p class="description">Dragon boat races and eating zongzi to commemorate Qu Yuan</p>
+                    </div>
+                    <div class="culture-card">
+                        <div class="culture-icon summer-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>七夕节</h4>
+                        <p class="chinese-name">Qixi Festival</p>
+                        <p class="description">Chinese Valentine's Day celebrating the Cowherd and Weaver Girl legend</p>
+                    </div>
+                    <div class="culture-card">
+                        <div class="culture-icon summer-icon">
+                            <i class="fas fa-fan"></i>
+                        </div>
+                        <h4>扇子舞</h4>
+                        <p class="chinese-name">Fan Dance</p>
+                        <p class="description">Elegant performances with traditional silk fans</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-bowl-rice"></i>
+                    <h3>夏季美食 Summer Food</h3>
+                </div>
+                <!-- SUMMER SECTION - Food Cards -->
+                <div class="food-grid">
+                    <div class="food-card">
+                        <div class="food-image summer-food" style="background-image: url('../assets/img/Summer/Food/Zongzi.png');"></div>
+                        <div class="food-content">
+                            <h4>粽子 Zongzi</h4>
+                            <p>Sticky rice in bamboo leaves, Dragon Boat Festival essential</p>
+                            <span class="food-tag summer-tag">Traditional</span>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-image summer-food" style="background-image: url('../assets/img/Summer/Food/ColdNoodle.png');"></div>
+                        <div class="food-content">
+                            <h4>凉面 Cold Noodles</h4>
+                            <p>Refreshing noodles perfect for hot days</p>
+                            <span class="food-tag summer-tag">Cool</span>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-image summer-food" style="background-image: url('../assets/img/Summer/Food/Watermelon.png');"></div>
+                        <div class="food-content">
+                            <h4>西瓜 Watermelon</h4>
+                            <p>The ultimate sweet summer fruit</p>
+                            <span class="food-tag summer-tag">Fresh</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destinations -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-mountain"></i>
+                    <h3>夏季景点 Summer Destinations</h3>
+                </div>
+                <!-- SUMMER SECTION - Destinations -->
+                <div class="destination-grid">
+                    <div class="destination-card">
+                        <div class="destination-image summer-dest" style="background-image: url('../assets/img/Summer/Destination/Jiuzhaigou.png');"></div>
+                        <div class="destination-content">
+                            <h4>九寨沟 Jiuzhaigou</h4>
+                            <p>Crystal clear lakes and waterfalls</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Sichuan</span>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-image summer-dest" style="background-image: url('../assets/img/Summer/Destination/Zhangjiajie.png');"></div>
+                        <div class="destination-content">
+                            <h4>张家界 Zhangjiajie</h4>
+                            <p>Towering sandstone pillars and mist</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Hunan</span>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-image summer-dest" style="background-image: url('../assets/img/Summer/Destination/Qinghai.png');"></div>
+                        <div class="destination-content">
+                            <h4>青海湖 Qinghai Lake</h4>
+                            <p>China's largest lake with grasslands</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Qinghai</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Autumn Section -->
+    <section id="autumn" class="season-section autumn-section">
+        <div class="season-bg autumn-bg"></div>
+        <div class="decorative-elements autumn-elements">
+            <div class="falling-leaf"></div>
+            <div class="falling-leaf"></div>
+            <div class="falling-leaf"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header">
+                <span class="season-badge autumn-badge">
+                    <i class="fas fa-leaf"></i> 秋季 Autumn
+                </span>
+                <h2 class="section-title">金秋时节 · Golden Autumn</h2>
+                <p class="season-period">September - November | 硕果累累，层林尽染</p>
+            </div>
+
+            <!-- Culture -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-pagoda"></i>
+                    <h3>秋季文化 Autumn Culture</h3>
+                </div>
+                <div class="culture-grid">
+                    <div class="culture-card">
+                        <div class="culture-icon autumn-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h4>中秋节</h4>
+                        <p class="chinese-name">Mid-Autumn Festival</p>
+                        <p class="description">Full moon celebration with mooncakes and family reunions</p>
+                    </div>
+                    <div class="culture-card">
+                        <div class="culture-icon autumn-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <h4>国庆节</h4>
+                        <p class="chinese-name">National Day</p>
+                        <p class="description">China's biggest holiday celebrating the founding of PRC</p>
+                    </div>
+                    <div class="culture-card">
+                        <div class="culture-icon autumn-icon">
+                            <i class="fas fa-wheat-awn"></i>
+                        </div>
+                        <h4>丰收节</h4>
+                        <p class="chinese-name">Harvest Festival</p>
+                        <p class="description">Celebrating abundant autumn harvest</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-bowl-rice"></i>
+                    <h3>秋季美食 Autumn Food</h3>
+                </div>
+                <!-- AUTUMN SECTION - Food Cards -->
+                <div class="food-grid">
+                    <div class="food-card">
+                        <div class="food-image autumn-food" style="background-image: url('../assets/img/Autum/Food/Mooncake.png');"></div>
+                        <div class="food-content">
+                            <h4>月饼 Mooncake</h4>
+                            <p>Rich pastries, symbol of Mid-Autumn Festival</p>
+                            <span class="food-tag autumn-tag">Sweet</span>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-image autumn-food" style="background-image: url('../assets/img/Autum/Food/HairyCrab.png');"></div>
+                        <div class="food-content">
+                            <h4>大闸蟹 Hairy Crab</h4>
+                            <p>Shanghai crabs at their peak in autumn</p>
+                            <span class="food-tag autumn-tag">Delicacy</span>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-image autumn-food" style="background-image: url('../assets/img/Autum/Food/Persimmon.png');"></div>
+                        <div class="food-content">
+                            <h4>柿子 Persimmon</h4>
+                            <p>Sweet fruit symbolizing good fortune</p>
+                            <span class="food-tag autumn-tag">Seasonal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destinations -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-mountain"></i>
+                    <h3>秋季景点 Autumn Destinations</h3>
+                </div>
+                <!-- AUTUMN SECTION - Destinations -->
+                <div class="destination-grid">
+                    <div class="destination-card">
+                        <div class="destination-image autumn-dest" style="background-image: url('../assets/img/Autum/Destination/FragrantHill.png');"></div>
+                        <div class="destination-content">
+                            <h4>香山 Fragrant Hills</h4>
+                            <p>Beijing's most famous autumn foliage spot</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Beijing</span>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-image autumn-dest" style="background-image: url('../assets/img/Autum/Destination/kanas.png');"></div>
+                        <div class="destination-content">
+                            <h4>喀纳斯 Kanas</h4>
+                            <p>Stunning alpine lake with golden forests</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Xinjiang</span>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-image autumn-dest" style="background-image: url('../assets/img/Autum/Destination/Ejina.png');"></div>
+                        <div class="destination-content">
+                            <h4>额济纳 Ejina</h4>
+                            <p>Golden poplar forest in the desert</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Inner Mongolia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Winter Section -->
+    <section id="winter" class="season-section winter-section">
+        <div class="season-bg winter-bg"></div>
+        <div class="decorative-elements winter-elements">
+            <div class="snowflake"></div>
+            <div class="snowflake"></div>
+            <div class="snowflake"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header">
+                <span class="season-badge winter-badge">
+                    <i class="fas fa-snowflake"></i> 冬季 Winter
+                </span>
+                <h2 class="section-title">冬雪皑皑 · Magical Winter</h2>
+                <p class="season-period">December - February | 银装素裹，纯净无瑕</p>
+            </div>
+
+            <!-- Culture -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-pagoda"></i>
+                    <h3>冬季文化 Winter Culture</h3>
+                </div>
+                <div class="culture-grid">
+                    <div class="culture-card">
+                        <div class="culture-icon winter-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h4>春节</h4>
+                        <p class="chinese-name">Chinese New Year</p>
+                        <p class="description">The most important festival with family reunions and fireworks</p>
+                    </div>
+                    <div class="culture-card">
+                        <div class="culture-icon winter-icon">
+                            <i class="fas fa-bowl-food"></i>
+                        </div>
+                        <h4>腊八节</h4>
+                        <p class="chinese-name">Laba Festival</p>
+                        <p class="description">Eating Laba porridge to mark the start of New Year preparations</p>
+                    </div>
+                    <div class="culture-card">
+                        <div class="culture-icon winter-icon">
+                            <i class="fas fa-snowman"></i>
+                        </div>
+                        <h4>冰雕</h4>
+                        <p class="chinese-name">Ice Sculpture</p>
+                        <p class="description">Magnificent ice and snow art festivals</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-bowl-rice"></i>
+                    <h3>冬季美食 Winter Food</h3>
+                </div>
+                <!-- WINTER SECTION - Food Cards -->
+                <div class="food-grid">
+                    <div class="food-card">
+                        <div class="food-image winter-food" style="background-image: url('../assets/img/Winter/Food/Dumplings.png');"></div>
+                        <div class="food-content">
+                            <h4>饺子 Dumplings</h4>
+                            <p>Essential for Chinese New Year celebrations</p>
+                            <span class="food-tag winter-tag">Traditional</span>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-image winter-food" style="background-image: url('../assets/img/Winter/Food/Hotpot.png');"></div>
+                        <div class="food-content">
+                            <h4>火锅 Hot Pot</h4>
+                            <p>Perfect warm meal for cold winter nights</p>
+                            <span class="food-tag winter-tag">Warming</span>
+                        </div>
+                    </div>
+                    <div class="food-card">
+                        <div class="food-image winter-food" style="background-image: url('../assets/img/Winter/Food/Tanghulu.png');"></div>
+                        <div class="food-content">
+                            <h4>糖葫芦 Tanghulu</h4>
+                            <p>Candied hawthorn on a stick, winter street snack</p>
+                            <span class="food-tag winter-tag">Sweet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destinations -->
+            <div class="content-row">
+                <div class="row-header">
+                    <i class="fas fa-mountain"></i>
+                    <h3>冬季景点 Winter Destinations</h3>
+                </div>
+                <!-- WINTER SECTION - Destinations -->
+                <div class="destination-grid">
+                    <div class="destination-card">
+                        <div class="destination-image winter-dest" style="background-image: url('../assets/img/Winter/Destination/Harbin.png');"></div>
+                        <div class="destination-content">
+                            <h4>哈尔滨 Harbin</h4>
+                            <p>Famous Ice and Snow Festival</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Heilongjiang</span>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-image winter-dest" style="background-image: url('../assets/img/Winter/Destination/Changbai.png');"></div>
+                        <div class="destination-content">
+                            <h4>长白山 Changbai Mountain</h4>
+                            <p>Stunning winter landscapes and hot springs</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Jilin</span>
+                        </div>
+                    </div>
+                    <div class="destination-card">
+                        <div class="destination-image winter-dest" style="background-image: url('../assets/img/Winter/Destination/Forbiden.png');"></div>
+                        <div class="destination-content">
+                            <h4>故宫 Forbidden City</h4>
+                            <p>Imperial palace covered in snow</p>
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> Beijing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Brand Column -->
+                <div class="footer-col footer-brand">
+                    <div class="brand-logo-footer">
+                        <i class="fas fa-yin-yang"></i>
+                        <span>四季中国</span>
+                    </div>
+                    <p class="footer-desc">Discover the beauty of China through its four magnificent seasons. Experience culture, cuisine, and destinations.</p>
+                    <div class="footer-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <span>50+ Destinations</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>4 Seasons</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#spring"><i class="fas fa-seedling"></i> Spring Season</a></li>
+                        <li><a href="#summer"><i class="fas fa-sun"></i> Summer Season</a></li>
+                        <li><a href="#autumn"><i class="fas fa-leaf"></i> Autumn Season</a></li>
+                        <li><a href="#winter"><i class="fas fa-snowflake"></i> Winter Season</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Social Column -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Stay Connected</h4>
+                    <div class="footer-contact">
+                        <div class="contact-item-footer">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@sijichina.com</span>
+                        </div>
+                        <div class="contact-item-footer">
+                            <i class="fas fa-phone"></i>
+                            <span>+86 123 456 7890</span>
+                        </div>
+                        <div class="contact-item-footer">
+                            <i class="fas fa-location-dot"></i>
+                            <span>Beijing, China</span>
+                        </div>
+                    </div>
+                    <div class="footer-social">
+                        <h5>Follow Us</h5>
+                        <div class="social-icons">
+                            <a href="#" class="social-link" title="WeChat">
+                                <i class="fab fa-weixin"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Weibo">
+                                <i class="fab fa-weibo"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">
+                        &copy; 2024 <span class="highlight">四季中国</span> (Four Seasons China). All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <span class="separator">|</span>
+                        <a href="#">Terms of Service</a>
+                        <span class="separator">|</span>
+                        <a href="#">Sitemap</a>
+                    </div>
+                    <p class="made-with">
+                        Made with <i class="fas fa-heart"></i> for China
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/Home.js"></script>
+</body>
+</html>
