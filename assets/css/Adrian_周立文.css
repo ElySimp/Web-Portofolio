@@ -626,54 +626,53 @@ section {
     transition: all 0.3s ease;
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-hover);
-}
-
+/* ========== PROJECT IMAGE - better fit & responsive ========== */
+/* ganti fixed height dengan aspect ratio agar gambar selalu proporsional */
 .project-image {
     position: relative;
-    height: 220px;
-    background: var(--gradient-mix);
+    /* gunakan aspect ratio 16:9 untuk tampilan yang konsisten */
+    height: 0;
+    padding-top: 56.25%; /* 16:9 */
+    background: var(--gradient-mix); /* fallback jika gambar gagal */
     overflow: hidden;
 }
 
-.project-overlay {
+/* gambar sebagai <img> mengisi container dan di-crop rapi */
+.project-image .project-img {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(33, 150, 243, 0.9);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* crop tanpa merubah rasio */
+    object-position: center;/* fokus tengah gambar */
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1), filter 0.35s ease, opacity 0.3s;
+}
+
+/* hover effect tetap smooth */
+.project-card:hover .project-img {
+    transform: scale(1.06);
+    filter: brightness(1.04) saturate(1.05);
+}
+
+/* overlay tetap bekerja di atas gambar */
+.project-overlay {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.28s ease;
+    pointer-events: none;
 }
 
 .project-card:hover .project-overlay {
     opacity: 1;
-}
-
-.project-link {
-    width: 50px;
-    height: 50px;
-    background: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-blue);
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-}
-
-.project-link:hover {
-    transform: scale(1.2) rotate(360deg);
-    background: var(--primary-green);
-    color: var(--white);
+    pointer-events: auto;
 }
 
 .project-content {
@@ -705,6 +704,86 @@ section {
 .project-content p {
     color: var(--gray-text);
     line-height: 1.6;
+}
+
+/* ========== AVATAR & MEMBER IMAGES ========== */
+/* jika avatar menggunakan <img> (recommended), pastikan pas */
+.avatar-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    display: block;
+}
+
+/* team member image support: kalau nanti ganti image-placeholder jadi <img> */
+.member-image img,
+.member-image .member-img,
+.image-placeholder img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    display: block;
+}
+
+/* jika masih pakai .image-placeholder (gradient), sediakan ukuran yang sama */
+.image-placeholder {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    color: var(--white);
+    overflow: hidden;
+}
+
+/* ========== DESTINATION & FOOD IMAGE TWEAK (reuse patterns) ========== */
+.destination-image,
+.food-image {
+    position: relative;
+    height: 0;
+    padding-top: 56.25%; /* 16:9 */
+    overflow: hidden;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* if destination/food use <img> inside, apply same fit */
+.destination-image img,
+.food-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s ease, filter 0.35s ease;
+}
+
+/* responsive: reduce height on very small screens */
+@media (max-width: 576px) {
+    .project-image,
+    .destination-image,
+    .food-image {
+        padding-top: 60%; /* sedikit lebih tinggi untuk portrait feel */
+    }
+
+    .member-image img,
+    .image-placeholder {
+        width: 160px;
+        height: 160px;
+    }
+
+    .avatar-container { width: 200px; height: 200px; }
+    .avatar-icon { width: 180px; height: 180px; }
 }
 
 /* ========== CONTACT SECTION ========== */
