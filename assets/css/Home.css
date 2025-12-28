@@ -955,6 +955,88 @@ body.dark-mode .theme-toggle:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
+/* ========== DESTINATION CARD HOVER FIX ========== */
+.destination-card {
+	/* pastikan gambar tidak keluar dari kotak saat di-scale */
+	overflow: hidden;
+	border-radius: 14px;
+	transition: transform 0.35s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.35s ease;
+	will-change: transform;
+	background: #fff;
+	box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.destination-image {
+	/* gambar sebagai background */
+	width: 100%;
+	height: 220px; /* sesuaikan jika diperlukan */
+	background-size: cover;
+	background-position: center;
+	transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1), filter 0.35s ease;
+	will-change: transform, filter;
+	transform-origin: center center;
+}
+
+/* subtle overlay supaya teks tetap terbaca saat gambar di-zoom */
+.destination-card::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: linear-gradient(to bottom, rgba(0,0,0,0.0) 40%, rgba(0,0,0,0.15) 100%);
+	opacity: 0;
+	transition: opacity 0.35s ease;
+}
+
+/* hover state: zoom image, brighten dan naikkan card */
+.destination-card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+.destination-card:hover .destination-image {
+	transform: scale(1.08);
+	filter: brightness(1.06) saturate(1.05);
+}
+
+.destination-card:hover::after {
+	opacity: 1;
+}
+
+/* teks/content transition */
+.destination-content {
+	padding: 1rem;
+	transition: transform 0.35s ease, color 0.25s ease;
+	z-index: 2;
+	position: relative;
+}
+
+.destination-card:hover .destination-content {
+	transform: translateY(-4px);
+}
+
+/* small tweaks for location badge */
+.destination-content .location {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	color: var(--light-text, #6c757d);
+	font-size: 0.95rem;
+	transition: color 0.25s ease;
+}
+
+.destination-card:hover .location {
+	color: var(--red, #dc143c);
+}
+
+/* responsive: kurangi zoom pada mobile */
+@media (max-width: 576px) {
+	.destination-image { height: 160px; }
+	.destination-card:hover { transform: none; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+	.destination-card:hover .destination-image { transform: scale(1.03); }
+	.destination-card::after { opacity: 1; } /* always keep overlay on small screens for readability */
+}
+
 /* ========== FOOTER ========== */
 .footer {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -1197,6 +1279,45 @@ body.dark-mode .theme-toggle:hover {
     50% { transform: scale(1); }
 }
 
+/* ========== LOGOUT BUTTON (NEW!) ========== */
+.btn-logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    background: linear-gradient(135deg, #DC143C, #FF6B6B);
+    color: var(--white);
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(220, 20, 60, 0.3);
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.btn-logout:hover {
+    background: linear-gradient(135deg, #B8112A, #E55555);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(220, 20, 60, 0.4);
+}
+
+.btn-logout i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-logout:hover i {
+    transform: translateX(3px);
+}
+
+.btn-logout:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(220, 20, 60, 0.3);
+}
+
 /* ========== RESPONSIVE (UPDATED) ========== */
 @media (max-width: 1200px) {
     .nav-container {
@@ -1278,7 +1399,18 @@ body.dark-mode .theme-toggle:hover {
         display: block;
     }
 
-    /* ...existing code... */
+    .btn-logout {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .btn-logout span {
+        display: none;
+    }
+    
+    .btn-logout {
+        padding: 0.6rem 0.8rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1299,8 +1431,6 @@ body.dark-mode .theme-toggle:hover {
         height: 40px;
         font-size: 1rem;
     }
-
-    /* ...existing code... */
 }
 
 /* Dark Mode Styles */
