@@ -1,4 +1,4 @@
-// ========== DARK MODE TOGGLE (PRIORITY - PALING ATAS!) ==========
+// ========== DARK MODE TOGGLE (PRIORITY - TOP!) ==========
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
@@ -220,72 +220,185 @@ lanterns.forEach((lantern, index) => {
 
 // ========== DECORATIVE ELEMENTS GENERATION (IMPROVED) ==========
 
-// Cherry Blossoms - Static, Random Positions (20 flowers)
+// Cherry Blossoms - Static, Random Positions (configurable & controllable)
 const cherryContainer = document.querySelector('.spring-elements');
 if (cherryContainer) {
-    for (let i = 0; i < 20; i++) {
-        const blossom = document.createElement('div');
-        blossom.className = 'cherry-blossom';
-        blossom.style.left = `${Math.random() * 100}%`;
-        blossom.style.top = `${Math.random() * 100}%`;
-        blossom.style.animationDelay = `${Math.random() * 4}s`;
-        blossom.style.animationDuration = `${3 + Math.random() * 2}s`;
-        cherryContainer.appendChild(blossom);
+    const CHERRY_COUNT = 20;
+    const CHERRY_MIN_DURATION = 2; // seconds (smaller = faster)
+    const CHERRY_MAX_DURATION = 5;
+    const CHERRY_MIN_DELAY = 0;
+    const CHERRY_MAX_DELAY = 3;
+
+    function createCherryBlossoms(count = CHERRY_COUNT) {
+        cherryContainer.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+            const blossom = document.createElement('div');
+            blossom.className = 'cherry-blossom';
+            blossom.style.left = `${Math.random() * 100}%`;
+            blossom.style.top = `${-10 + Math.random() * 120}%`;
+            const dur = (CHERRY_MIN_DURATION + Math.random() * (CHERRY_MAX_DURATION - CHERRY_MIN_DURATION)).toFixed(2);
+            const delay = (CHERRY_MIN_DELAY + Math.random() * (CHERRY_MAX_DELAY - CHERRY_MIN_DELAY)).toFixed(2);
+            blossom.style.animationDelay = `${delay}s`;
+            blossom.style.animationDuration = `${dur}s`;
+            blossom.dataset.duration = dur;
+            cherryContainer.appendChild(blossom);
+        }
     }
+
+    // update speed (duration) for all cherry blossoms
+    // call from console or other code: updateCherrySpeed(1.2, 3.0)
+    // values are in seconds. Smaller => faster
+    window.updateCherrySpeed = (min = 1.5, max = 4.0) => {
+        document.querySelectorAll('.cherry-blossom').forEach(b => {
+            const newDur = (min + Math.random() * (max - min)).toFixed(2);
+            b.style.animationDuration = `${newDur}s`;
+            b.dataset.duration = newDur;
+        });
+        console.log(`Cherry speeds updated: min=${min}s max=${max}s`);
+    };
+
+    // regenerate blossom count
+    window.regenCherry = (count = CHERRY_COUNT) => {
+        createCherryBlossoms(count);
+        console.log(`Cherry regenerated: count=${count}`);
+    };
+
+    createCherryBlossoms(CHERRY_COUNT);
 }
 
-// Sun Rays - 2 Suns with Rotating Rays
+// falling suns - multiple suns falling down
 const sunContainer = document.querySelector('.summer-elements');
 if (sunContainer) {
-    // Create 2 suns
-    const sun1 = document.createElement('div');
-    sun1.className = 'sun sun-1';
-    sunContainer.appendChild(sun1);
-    
-    const sun2 = document.createElement('div');
-    sun2.className = 'sun sun-2';
-    sunContainer.appendChild(sun2);
-    
-    // Add rotating rays around each sun
-    [sun1, sun2].forEach(sun => {
-        for (let i = 0; i < 12; i++) {
-            const ray = document.createElement('div');
-            ray.className = 'sun-ray';
-            ray.style.transform = `rotate(${i * 30}deg)`;
-            ray.style.animationDelay = `${i * 0.1}s`;
-            sun.appendChild(ray);
-        }
-    });
+    const MIN_DURATION = 1.5;      // minimum duration in seconds (smaller = faster)
+    const MAX_DURATION = 3.5;      // maximum duration in seconds
+    const MIN_DELAY = 0;           // minimum delay in seconds
+    const MAX_DELAY = 2.5;         // maximum delay in seconds
+
+    for (let i = 0; i < 20; i++) {
+        const sun = document.createElement('div');
+        sun.className = 'sun-ray';
+        sun.style.left = `${5 + Math.random() * 90}%`;
+
+        // size variation
+        const size = 30 + Math.random() * 70;
+        sun.style.width = `${size}px`;
+        sun.style.height = `${size}px`;
+
+        // random duration & delay within configured range
+        const duration = (MIN_DURATION + Math.random() * (MAX_DURATION - MIN_DURATION)).toFixed(2);
+        const delay = (MIN_DELAY + Math.random() * (MAX_DELAY - MIN_DELAY)).toFixed(2);
+        sun.style.animationDelay = `${delay}s`;
+        sun.style.animationDuration = `${duration}s`;
+
+        // store for reference (optional)
+        sun.dataset.fallDuration = duration;
+        sun.dataset.fallDelay = delay;
+
+        sunContainer.appendChild(sun);
+    }
+
+    // Runtime utility:
+    // call in console or other code: updateSunSpeed(0.8, 2.2)
+    // values are in seconds. Smaller => faster
+    window.updateSunSpeed = (min = 1.0, max = 3.0) => {
+        document.querySelectorAll('.sun-ray').forEach(sun => {
+            const newDuration = (min + Math.random() * (max - min)).toFixed(2);
+            sun.style.animationDuration = `${newDuration}s`;
+            sun.dataset.fallDuration = newDuration;
+        });
+        console.log(`Sun speeds updated: min=${min}s max=${max}s`);
+    };
 }
 
-// Falling Leaves - 25 leaves falling down
+// Falling Leaves - configurable & controllable
 const leavesContainer = document.querySelector('.autumn-elements');
 if (leavesContainer) {
-    for (let i = 0; i < 25; i++) {
-        const leaf = document.createElement('div');
-        leaf.className = 'falling-leaf';
-        leaf.style.left = `${Math.random() * 100}%`;
-        leaf.style.animationDelay = `${Math.random() * 8}s`;
-        leaf.style.animationDuration = `${6 + Math.random() * 4}s`;
-        leaf.style.width = `${20 + Math.random() * 15}px`;
-        leaf.style.height = `${25 + Math.random() * 20}px`;
-        leavesContainer.appendChild(leaf);
+    const LEAF_COUNT = 25;
+    const LEAF_MIN_DURATION = 4; // seconds
+    const LEAF_MAX_DURATION = 9;
+    const LEAF_MIN_DELAY = 0;
+    const LEAF_MAX_DELAY = 6;
+
+    function createLeaves(count = LEAF_COUNT) {
+        leavesContainer.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+            const leaf = document.createElement('div');
+            leaf.className = 'falling-leaf';
+            leaf.style.left = `${Math.random() * 100}%`;
+            const dur = (LEAF_MIN_DURATION + Math.random() * (LEAF_MAX_DURATION - LEAF_MIN_DURATION)).toFixed(2);
+            const delay = (LEAF_MIN_DELAY + Math.random() * (LEAF_MAX_DELAY - LEAF_MIN_DELAY)).toFixed(2);
+            leaf.style.animationDelay = `${delay}s`;
+            leaf.style.animationDuration = `${dur}s`;
+            leaf.style.width = `${20 + Math.random() * 15}px`;
+            leaf.style.height = `${25 + Math.random() * 20}px`;
+            leaf.dataset.duration = dur;
+            leavesContainer.appendChild(leaf);
+        }
     }
+
+    // call updateLeafSpeed(minSeconds, maxSeconds) to change fall durations
+    window.updateLeafSpeed = (min = 3.5, max = 8.0) => {
+        document.querySelectorAll('.falling-leaf').forEach(l => {
+            const newDur = (min + Math.random() * (max - min)).toFixed(2);
+            l.style.animationDuration = `${newDur}s`;
+            l.dataset.duration = newDur;
+        });
+        console.log(`Leaf speeds updated: min=${min}s max=${max}s`);
+    };
+
+    // regenerate leaves
+    window.regenLeaves = (count = LEAF_COUNT) => {
+        createLeaves(count);
+        console.log(`Leaves regenerated: count=${count}`);
+    };
+
+    createLeaves(LEAF_COUNT);
 }
 
-// Snowflakes - 40 snowflakes falling fast
+// Snowflakes - configurable & controllable
 const snowContainer = document.querySelector('.winter-elements');
 if (snowContainer) {
-    for (let i = 0; i < 40; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.className = 'snowflake';
-        snowflake.style.left = `${Math.random() * 100}%`;
-        snowflake.style.animationDelay = `${Math.random() * 6}s`;
-        snowflake.style.animationDuration = `${4 + Math.random() * 4}s`;
-        snowflake.style.width = `${8 + Math.random() * 12}px`;
-        snowflake.style.height = snowflake.style.width;
-        snowContainer.appendChild(snowflake);
+    const SNOW_COUNT = 40;
+    const SNOW_MIN_DURATION = 3; // seconds
+    const SNOW_MAX_DURATION = 8;
+    const SNOW_MIN_DELAY = 0;
+    const SNOW_MAX_DELAY = 6;
+
+    function createSnow(count = SNOW_COUNT) {
+        snowContainer.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.style.left = `${Math.random() * 100}%`;
+            const dur = (SNOW_MIN_DURATION + Math.random() * (SNOW_MAX_DURATION - SNOW_MIN_DURATION)).toFixed(2);
+            const delay = (SNOW_MIN_DELAY + Math.random() * (SNOW_MAX_DELAY - SNOW_MIN_DELAY)).toFixed(2);
+            const size = (8 + Math.random() * 12).toFixed(0);
+            snowflake.style.animationDelay = `${delay}s`;
+            snowflake.style.animationDuration = `${dur}s`;
+            snowflake.style.width = `${size}px`;
+            snowflake.style.height = `${size}px`;
+            snowflake.dataset.duration = dur;
+            snowContainer.appendChild(snowflake);
+        }
     }
+
+    // call updateSnowSpeed(minSeconds, maxSeconds) to change fall durations
+    window.updateSnowSpeed = (min = 2.5, max = 6.0) => {
+        document.querySelectorAll('.snowflake').forEach(s => {
+            const newDur = (min + Math.random() * (max - min)).toFixed(2);
+            s.style.animationDuration = `${newDur}s`;
+            s.dataset.duration = newDur;
+        });
+        console.log(`Snow speeds updated: min=${min}s max=${max}s`);
+    };
+
+    // regenerate snowflakes
+    window.regenSnow = (count = SNOW_COUNT) => {
+        createSnow(count);
+        console.log(`Snow regenerated: count=${count}`);
+    };
+
+    createSnow(SNOW_COUNT);
 }
 
 // ========== SEASON BACKGROUND PARALLAX ==========
